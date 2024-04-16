@@ -47,6 +47,7 @@
         }
         .objective-content p {
             margin: 0;
+            text-align: center;
         }
         .objective-content img {
             max-width: 100%;
@@ -75,6 +76,44 @@
             max-height: 500px; /* Ajusta esta altura máxima según sea necesario. */
             opacity: 1;
             transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+        }
+        form {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="number"],
+        textarea,
+        button {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .custom-form {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.3s ease-out;
+        }
+        .active-form {
+            max-height: 1000px; /* Ajusta esta altura máxima según sea necesario. */
+            transition: max-height 0.5s ease-in-out;
         }
     </style>
 </head>
@@ -114,6 +153,18 @@
             </div>
         </div>
         <!-- Agrega más objetivos según sea necesario -->
+
+        <!-- Formulario para el precio personalizado -->
+        <div class="custom-form" id="customForm">
+            <form>
+                <label for="precio">Tu Contribución Personalizada:</label>
+                <input type="number" id="precio" name="precio" min="0" step="any" required>
+                <label for="justificacion">Peticiones a cambio del precio justificado:</label>
+                <textarea id="justificacion" name="justificacion" rows="4" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+        <div onclick="toggleCustomForm()" style="text-align: center; cursor: pointer; color: #007bff;">Contribuir con un Precio Personalizado</div>
     </div>
 
     <script>
@@ -129,6 +180,10 @@
                 });
                 objectiveContent.classList.add('active');
             }
+            
+            // Cerrar el formulario personalizado si está abierto
+            var customForm = document.getElementById('customForm');
+            customForm.classList.remove('active-form');
         }
 
         function navigateObjectives(direction, objectiveNumber) {
@@ -152,6 +207,17 @@
                 toggleObjective(currentIndex + 1);
                 toggleObjective(newIndex + 1);
             }
+        }
+
+        function toggleCustomForm() {
+            var customForm = document.getElementById('customForm');
+            customForm.classList.toggle('active-form');
+            
+            // Cerrar los objetivos abiertos si el formulario se abre
+            var allObjectives = document.querySelectorAll('.objective-content');
+            allObjectives.forEach(function(item) {
+                item.classList.remove('active');
+            });
         }
     </script>
 </body>
