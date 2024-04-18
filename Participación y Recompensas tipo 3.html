@@ -61,8 +61,46 @@
             padding: 20px;
             box-sizing: border-box;
         }
-        .objective.expanded .details {
+        .expanded .details {
             opacity: 1;
+        }
+        .custom-info {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            border-radius: 8px;
+            z-index: 9999;
+            animation: fadein 0.5s;
+        }
+        @keyframes fadein {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+        .custom-info.fadeout {
+            animation: fadeout 0.5s;
+        }
+        @keyframes fadeout {
+            from { opacity: 1; }
+            to   { opacity: 0; }
+        }
+        .custom-info button {
+            display: block;
+            margin: 0 auto;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .custom-info button:hover {
+            background-color: #0056b3;
         }
         .custom-form {
             overflow: hidden;
@@ -111,18 +149,27 @@
 <body>
     <div class="container">
         <h1>Participación y Recompensas</h1>
-        <div class="objective" onmouseover="expandDetails(this)" onmouseout="collapseDetails(this)" onclick="openPopup('Detalles del Objetivo 1: Aquí puedes agregar información detallada sobre este objetivo recomendado.')">
+        <div class="objective" onclick="openCustomInfo('Detalles del Objetivo 1: Aquí puedes agregar información detallada sobre este objetivo recomendado.')"
+            onmouseover="toggleDetails('details1', true)" onmouseout="toggleDetails('details1', false)">
             <img src="imagen1.jpg" alt="Objetivo 1">
-            <div class="details">Detalles del Objetivo 1: Aquí puedes agregar información detallada sobre este objetivo recomendado.</div>
+            <div id="details1" class="details">Más información sobre el Objetivo 1</div>
         </div>
-        <div class="objective" onmouseover="expandDetails(this)" onmouseout="collapseDetails(this)" onclick="openPopup('Detalles del Objetivo 2: Aquí puedes agregar información detallada sobre este objetivo recomendado.')">
+        <div class="objective" onclick="openCustomInfo('Detalles del Objetivo 2: Aquí puedes agregar información detallada sobre este objetivo recomendado.')"
+            onmouseover="toggleDetails('details2', true)" onmouseout="toggleDetails('details2', false)">
             <img src="imagen2.jpg" alt="Objetivo 2">
-            <div class="details">Detalles del Objetivo 2: Aquí puedes agregar información detallada sobre este objetivo recomendado.</div>
+            <div id="details2" class="details">Más información sobre el Objetivo 2</div>
         </div>
-        <div class="objective" onmouseover="expandDetails(this)" onmouseout="collapseDetails(this)" onclick="openPopup('Detalles del Objetivo 3: Aquí puedes agregar información detallada sobre este objetivo recomendado.')">
+        <div class="objective" onclick="openCustomInfo('Detalles del Objetivo 3: Aquí puedes agregar información detallada sobre este objetivo recomendado.')"
+            onmouseover="toggleDetails('details3', true)" onmouseout="toggleDetails('details3', false)">
             <img src="imagen3.jpg" alt="Objetivo 3">
-            <div class="details">Detalles del Objetivo 3: Aquí puedes agregar información detallada sobre este objetivo recomendado.</div>
+            <div id="details3" class="details">Más información sobre el Objetivo 3</div>
         </div>
+    </div>
+
+    <!-- Cuadro de información personalizada -->
+    <div class="custom-info fadeout" id="customInfo">
+        <div id="customInfoContent"></div>
+        <button onclick="closeCustomInfo()">Cerrar</button>
     </div>
 
     <!-- Formulario para el precio personalizado -->
@@ -138,16 +185,27 @@
     </div>
 
     <script>
-        function expandDetails(objective) {
-            objective.classList.add('expanded');
+        function toggleDetails(detailsId, expand) {
+            var details = document.getElementById(detailsId);
+            if (expand) {
+                details.parentElement.classList.add('expanded');
+            } else {
+                details.parentElement.classList.remove('expanded');
+            }
         }
 
-        function collapseDetails(objective) {
-            objective.classList.remove('expanded');
+        function openCustomInfo(content) {
+            var customInfo = document.getElementById('customInfo');
+            var customInfoContent = document.getElementById('customInfoContent');
+            customInfoContent.textContent = content;
+            customInfo.classList.remove('fadeout');
+            customInfo.style.display = 'block';
         }
 
-        function openPopup(content) {
-            alert(content);
+        function closeCustomInfo() {
+            var customInfo = document.getElementById('customInfo');
+            customInfo.classList.add('fadeout');
+            setTimeout(() => { customInfo.style.display = 'none'; }, 500);
         }
 
         function toggleCustomForm() {
