@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página web multimedia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header, footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 100px; /* Margen inferior para evitar solapamiento con el pie de página */
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .meta, .faq {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            border: 2px solid #333; /* Borde sólido */
+            border-radius: 10px; /* Bordes redondeados */
+            padding: 20px; /* Espaciado interno */
+            background-color: #fff; /* Fondo blanco */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra suave */
+        }
+        .meta h3, .faq h3 {
+            color: #444;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .monto, .faq div {
+            width: 80px;
+            height: 80px;
+            background-color: #f0f0f0;
+            text-align: center;
+            line-height: 80px;
+            border-radius: 50%;
+            border: 2px solid #333;
+        }
+        .faq p, .faq ul {
+            text-align: left;
+            margin-top: 5px;
+        }
+        .faq ul {
+            padding-left: 20px;
+        }
+        .faq li {
+            margin-bottom: 10px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .objective {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .objective:hover {
+            background-color: #e0e0e0;
+        }
+        .objective-content {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.3s ease-out;
+            padding: 0 10px;
+            margin-top: 5px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+        }
+        .objective-content p {
+            margin: 0;
+            text-align: center;
+        }
+        .objective-content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+        }
+        .custom-form {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.3s ease-out;
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+            text-align: center;
+        }
+        .custom-form.active-form {
+            max-height: 1000px; /* Ajusta esta altura máxima según sea necesario. */
+            transition: max-height 0.5s ease-in-out;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: black;
+        }
+        input[type="number"],
+        textarea,
+        button {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mi Página Web</h1>
+    </header>
+    <nav>
+        <a href="#sobre-la-web">Sobre la web</a>
+        <a href="#objetivos-recompensas">Objetivos y recompensas</a>
+        <a href="#participacion-recompensas">Participación y recompensas</a>
+        <a href="#preguntas-frecuentes">Preguntas frecuentes</a>
+        <a href="#comentarios">Comentarios</a>
+        <a href="#equipo">Equipo</a>
+    </nav>
+    <section id="sobre-la-web">
+        <h2>Sobre la web</h2>
+        <p>Información sobre esta página web...</p>
+    </section>
+     <section id="objetivos-recompensas">
+        <h2>Objetivos y Recompensas</h2>
+        <div class="meta">
+            <h3>Meta 1: Descripción de la meta 1 y las recompensas asociadas.</h3>
+            <div class="monto">$1000</div>
+        </div>
+        <div class="meta">
+            <h3>Meta 2: Descripción de la meta 2 y las recompensas asociadas.</h3>
+            <div class="monto">$2000</div>
+        </div>
+        <div class="meta">
+            <h3>Meta 3: Descripción de la meta 3 y las recompensas asociadas.</h3>
+            <div class="monto">$3000</div>
+        </div>
+        <div class="meta">
+            <h3>Meta 4: Descripción de la meta 4 y las recompensas asociadas.</h3>
+            <div class="monto">$4000</div>
+        </div>
+    </section>
+    <section id="participacion-recompensas">
+        <div class="meta">
+            <h2>Participación y Recompensas</h2>
+            <div class="container">
+                <div class="objective" onclick="toggleObjective(1)">
+                    <strong>Objetivo y Recompensa 1:</strong> Haz clic para ver más detalles
+                    <div class="objective-content" id="objective1">
+                        <p>Detalles del Objetivo y Recompensa 1:  Lo agregaré en un futuro.</p>
+                        <img src="imagen1.jpg" alt="Imagen 1">
+                    </div>
+                </div>
+                <div class="objective" onclick="toggleObjective(2)">
+                    <strong>Objetivo y Recompensa 2:</strong> Haz clic para ver más detalles
+                    <div class="objective-content" id="objective2">
+                        <p>Detalles del Objetivo y Recompensa 2:  Lo agregaré en un futuro.</p>
+                        <img src="imagen2.jpg" alt="Imagen 2">
+                    </div>
+                </div>
+                <div class="objective" onclick="toggleObjective(3)">
+                    <strong>Objetivo y Recompensa 3:</strong> Haz clic para ver más detalles
+                    <div class="objective-content" id="objective3">
+                        <p>Detalles del Objetivo y Recompensa 3: Lo agregaré en un futuro.</p>
+                        <img src="imagen3.jpg" alt="Imagen 3">
+                    </div>
+                </div>
+                <!-- EL APARTADO DE CONTRIBUCIÓN PERSONALIZADA (WORK IN PROGRESS) -->
+                <div class="custom-form" id="customForm">
+                    <label for="precio">Contribución Personalizada (En Euros):</label>
+                    <input type="number" id="precio" name="precio" min="0" step="any" required>
+                    <label for="justificacion">Notas de la contribución:</label>
+                    <textarea id="justificacion" name="justificacion" rows="4" required></textarea>
+                    <button type="submit">Pagar y enviar</button>
+                </div>
+                <div onclick="toggleCustomForm()" style="text-align: center; cursor: pointer; color: black; font-weight: bold;">Contribuir con una cantidad personalizada</div>
+            </div>
+        </div>
+    </section>
+    <section id="preguntas-frecuentes">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="faq">
+            <h3>¿Cuáles son los requisitos mínimos para poder jugar al juego en PC?</h3>
+            <p>Los requisitos mínimos para jugar al juego en PC son similares a los de League of Legends. Necesitas:</p>
+            <ul>
+                <li>Sistema operativo: Windows 7, 8.1, o 10, de 64 bits</li>
+                <li>Procesador: 3 GHz procesador</li>
+                <li>Memoria: 2 GB de RAM (4 GB de RAM para Windows Vista y superior)</li>
+                <li>Gráficos: Tarjeta gráfica compatible con DirectX 9.0c con 512MB de VRAM</li>
+                <li>Espacio en disco: 16 GB</li>
+            </ul>
+        </div>
+        <div class="faq">
+            <h3>¿Qué idiomas están disponibles?</h3>
+            <p>El juego está disponible en varios idiomas, incluyendo Español e Inglés.</p>
+        </div>
+        <div class="faq">
+            <h3>¿En qué plataformas se podrá jugar?</h3>
+            <p>El juego estará disponible para PC y Nintendo Switch.</p>
+        </div>
+        <div class="faq">
+            <h3>¿El juego tiene soporte para controladores?</h3>
+            <p>Sí, el juego ofrece soporte completo para controladores en todas las plataformas, incluyendo PC y Nintendo Switch. Los jugadores pueden optar por utilizar un controlador para una experiencia más cómoda y adaptada a sus preferencias de juego.</p>
+        </div>
+        <div class="faq">
+            <h3>¿Existen opciones de personalización dentro del juego?</h3>
+            <p>El juego permite una amplia variedad de personalizaciones, incluyendo la modificación de personajes, la selección de equipamiento y la personalización de interfaces de usuario para adaptarse a diferentes estilos de juego y preferencias personales.</p>
+        </div>
+        <div class="faq">
+            <h3>¿Cómo se manejan las actualizaciones del juego?</h3>
+            <p>Las actualizaciones del juego se lanzan regularmente para mejorar la experiencia de juego, corregir errores y añadir contenido nuevo. Los jugadores recibirán notificaciones dentro del juego y podrán descargar las actualizaciones automáticamente o manualmente, según prefieran.</p>
+        </div>
+        <div class="faq">
+            <h3>¿Hay características de accesibilidad disponibles?</h3>
+            <p>Nos comprometemos con la accesibilidad para todos los jugadores. El juego incluye opciones de texto de alto contraste, subtítulos para todos los diálogos, descripciones de audio para eventos visuales importantes, y configuraciones personalizables para controles. Estamos constantemente evaluando nuestra comunidad para integrar más características de accesibilidad en futuras actualizaciones.</p>
+        </div>
+    </section>
+    <section id="comentarios">
+        <h2>Comentarios</h2>
+        <p>Aquí se encuentran los comentarios...</p>
+    </section>
+    <section id="equipo">
+        <h2>Equipo</h2>
+        <p>Aquí se encuentra la información sobre el equipo...</p>
+    </section>
+    <footer>
+        <p>Derechos de autor &copy; 2024 Mi Página Web</p>
+    </footer>
+    <script>
+        function toggleObjective(objectiveNumber) {
+            var objectiveContent = document.getElementById('objective' + objectiveNumber);
+            if (objectiveContent.classList.contains('active')) {
+                objectiveContent.classList.remove('active');
+                objectiveContent.style.maxHeight = null;
+                objectiveContent.style.opacity = 0;
+            } else {
+                // Cerrar todos los objetivos antes de abrir el seleccionado
+                var allObjectives = document.querySelectorAll('.objective-content');
+                allObjectives.forEach(function(item) {
+                    item.classList.remove('active');
+                    item.style.maxHeight = null;
+                    item.style.opacity = 0;
+                });
+                objectiveContent.classList.add('active');
+                objectiveContent.style.maxHeight = objectiveContent.scrollHeight + "px";
+                objectiveContent.style.opacity = 1;
+            }
+            
+            // Cerrar el formulario personalizado si está abierto
+            var customForm = document.getElementById('customForm');
+            customForm.classList.remove('active-form');
+            customForm.style.maxHeight = null;
+            customForm.style.opacity = 0;
+        }
+
+        function toggleCustomForm() {
+            var customForm = document.getElementById('customForm');
+            if (customForm.classList.contains('active-form')) {
+                customForm.classList.remove('active-form');
+                customForm.style.maxHeight = null;
+                customForm.style.opacity = 0;
+            } else {
+                customForm.classList.add('active-form');
+                customForm.style.maxHeight = customForm.scrollHeight + "px";
+                customForm.style.opacity = 1;
+                
+                // Cerrar los objetivos abiertos si el formulario se abre
+                var allObjectives = document.querySelectorAll('.objective-content');
+                allObjectives.forEach(function(item) {
+                    item.classList.remove('active');
+                    item.style.maxHeight = null;
+                    item.style.opacity = 0;
+                });
+            }
+        }
+    </script>
+</body>
+</html>
