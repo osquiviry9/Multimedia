@@ -93,6 +93,86 @@
         .objective:hover {
             background-color: #e0e0e0;
         }
+         
+        /* Estilos CSS para el aside */
+        aside {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            width: 250px; /* Ancho ajustado */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            z-index: 1000; /* Para asegurar que esté encima del contenido */
+            opacity: 0; /* Inicialmente transparente */
+            transition: opacity 0.5s; /* Transición suave */
+        }
+
+        /* Estilos CSS para los comentarios */
+        .comment {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .comment img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+            float: left;
+        }
+
+        .comment .info {
+            overflow: hidden;
+        }
+
+        .comment .info p {
+            margin: 0;
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* Estilos CSS para el formulario de comentarios */
+        .comment-form {
+            display: none; /* Por defecto oculto */
+            margin-top: 10px;
+            opacity: 0; /* Inicialmente transparente */
+            transition: opacity 0.5s ease-in-out; /* Transición suave */
+        }
+
+        .comment-form.active {
+            display: block; /* Mostrar cuando está activo */
+            opacity: 1; /* Hacer visible */
+        }
+
+        .comment-form input[type="text"],
+        .comment-form textarea {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .comment-form button {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .comment-form button:hover {
+            background-color: #0056b3;
+        }
+
         .objective-content {
             overflow: hidden;
             max-height: 0;
@@ -489,6 +569,65 @@
     <footer>
         <p>Derechos de autor &copy; 2024 Mi Página Web</p>
     </footer>
+    <button id="toggleButton">¿Qué piensas?</button>
+
+    <!-- Aside que se abrirá al hacer clic en el botón -->
+    <button id="toggleButton">¿Qué piensas?</button>
+
+    <!-- Aside que se abrirá al hacer clic en el botón -->
+ <aside id="comentariosAside">
+        <h2>Comentarios</h2>
+        <!-- Comentarios ficticios --->
+        <div class="comment">
+            <img src="usuario1.jpg" alt="Usuario 1">
+            <div class="info">
+                <p>Usuario 1 - 10:00 AM</p>
+                <p>El juego pinta muy bien, espero que cumplan!!!</p>
+            </div>
+        </div>
+        <div class="comment">
+            <img src="usuario2.jpg" alt="Usuario 2">
+            <div class="info">
+                <p>Usuario 2 - 10:30 AM</p>
+                <p>He aportado mi granito de arena a este proyecto, que ganas de verlo terminado!!!</p>
+            </div>
+        </div>
+        <div class="comment">
+            <img src="usuario3.jpg" alt="Usuario 3">
+            <div class="info">
+                <p>Usuario 3 - 11:00 AM</p>
+                <p>Me ecanta que los desarrolladores indie prueben cosas nuevas, que vayan a innovar.</p>
+            </div>
+        </div>
+        <!-- Fin de comentarios ficticios -->
+        <!-- Formulario para unirse a la conversación -->
+        <div class="comment-form" id="commentForm">
+            <form>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required><br>
+                <label for="mensaje">Mensaje:</label><br>
+                <textarea id="mensaje" name="mensaje" rows="4" required></textarea><br>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+        <button id="joinConversation">Únete a la conversación</button>
+    </aside>
+
+        <script>
+        // Función para abrir automáticamente el aside después de tres segundos
+        window.onload = function() {
+            setTimeout(function() {
+                var asideElement = document.getElementById("comentariosAside");
+                asideElement.style.opacity = "1";
+            }, 3000); // Tres segundos
+        };
+
+        // Función para mostrar el formulario al hacer clic en el botón "Únete a la conversación"
+        document.getElementById("joinConversation").addEventListener("click", function() {
+            var form = document.getElementById("commentForm");
+            form.classList.toggle("active");
+        });
+    </script>
     <script>
         function toggleObjective(objectiveNumber) {
             var objectiveContent = document.getElementById('objective' + objectiveNumber);
