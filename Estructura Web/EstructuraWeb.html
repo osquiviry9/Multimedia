@@ -37,6 +37,7 @@
             color: #fff;
             text-decoration: none;
             margin: 0 10px;
+            text-shadow: 2px 2px 5px black;
         }
         section {
             padding: 20px;
@@ -52,6 +53,7 @@
             bottom: 0;
             width: 100%;
             z-index: 2;
+            text-shadow: 2px 2px 5px black;
         }
         .meta, .faq {
             display: flex;
@@ -351,6 +353,12 @@
           letter-spacing: 20px;
         }
         /* fin de estilos CSS para seccion equipo*/
+
+        /*estilo CSS inicio de la página*/
+        .grid-container {
+          display: grid;
+          grid-template-columns: 70% 30%;
+        }
     </style>
 </head>
 <body>
@@ -366,11 +374,14 @@
         <a href="#equipo">Equipo</a>
     </nav>
     <section id="sobre-la-web">
-        <div>
-            <h2>El viaje comienza con un simple billete perdido.</h2>
-        </div>
-        <div>
-            <img src="../Images/imagenPrincipal.jpg" width="100%" height="70%">
+        <div class="grid-container">
+            <div>
+                <img src="../Images/imagenPrincipal.jpg" width="100%" height="70%">
+            </div>
+            <div>
+                <h2>El viaje comienza con un simple billete perdido.
+                </h2>
+            </div>
         </div>
         <div>
             <h2>ATENCIÓN: Esta página simula la campaña de microfinanciación de un videojuego ficticio 
