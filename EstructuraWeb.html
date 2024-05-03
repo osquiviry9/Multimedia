@@ -20,6 +20,55 @@
             padding: 10px 0;
             text-align: center;
         }
+        .circular-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 24px;
+            border: none;
+            cursor: pointer;
+            z-index: 1001; /* Asegura que esté encima del contenido */
+        }
+        #closeAsideButton {
+    display: block;
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#closeAsideButton:hover {
+    background-color: #0056b3;
+}
+
+        /* Estilos para el aside */
+        #comentariosAside {
+            /* Estilos existentes del aside */
+        }
+
+        #closeAside {
+            /* Estilos para el botón de cerrar */
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #ff0000;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
         
         footer {
             background-color: #333;
@@ -362,6 +411,7 @@
     </style>
 </head>
 <body>
+     <button id="toggleAside" class="circular-button">💬</button>
     <header>
         <img src="Images/logoLejanias.png" width="100%" height="70%">
     </header>
@@ -605,6 +655,8 @@
 
     <!-- Aside que se abrirá al hacer clic en el botón -->
  <aside id="comentariosAside">
+        <button id="closeAside" class="circular-button">✖</button>
+
         <h2>Comentarios</h2>
         <!-- Comentarios ficticios --->
         <div class="comment">
@@ -639,6 +691,14 @@
             </form>
         </div>
         <button id="joinConversation">Únete a la conversación</button>
+        <aside id="comentariosAside">
+        <!-- Botón para cerrar el aside -->
+        <button id="closeAside" class="circular-button">✖</button>
+        <h2>Comentarios</h2>
+        <!-- Contenido del aside -->
+        <p>Aquí puedes agregar tu contenido de comentarios...</p>
+        <button id="closeAsideButton" class="circular-button">Cerrar</button>
+    </aside>
     </aside>
 
         <script>
@@ -656,6 +716,24 @@
             form.classList.toggle("active");
         });
     </script>
+    <script>
+    // Función para abrir automáticamente el aside después de tres segundos
+    window.onload = function() {
+        
+    };
+
+    // Función para abrir el aside al hacer clic en el botón
+    document.getElementById("toggleAside").addEventListener("click", function() {
+        var asideElement = document.getElementById("comentariosAside");
+        asideElement.style.opacity = "1";
+    });
+
+    // Función para cerrar el aside al hacer clic en el botón de cerrar
+    document.getElementById("closeAside").addEventListener("click", function() {
+        var asideElement = document.getElementById("comentariosAside");
+        asideElement.style.opacity = "0";
+    });
+</script>
     <script>
         function toggleObjective(objectiveNumber) {
             var objectiveContent = document.getElementById('objective' + objectiveNumber);
