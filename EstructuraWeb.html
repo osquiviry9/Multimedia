@@ -782,5 +782,48 @@
             }
         }
     </script>
+    <script>
+        // Obtener referencias a los elementos
+const toggleAsideButton = document.getElementById('toggleAside');
+const comentariosAside = document.getElementById('comentariosAside');
+const closeAsideButton = document.getElementById('closeAside');
+
+// Función para ajustar la posición del botón de abrir el aside
+function ajustarPosicionBoton() {
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+    const buttonSize = 50; // Tamaño del botón
+    const offset = 20; // Espacio de separación desde el borde
+
+    // Calcular la posición del botón
+    const top = windowHeight / 2 - buttonSize / 2;
+    const left = windowWidth - buttonSize - offset;
+
+    // Aplicar la posición al botón
+    toggleAsideButton.style.top = top + 'px';
+    toggleAsideButton.style.left = left + 'px';
+}
+
+// Función para abrir el aside
+function abrirAside() {
+    comentariosAside.style.display = 'block';
+    toggleAsideButton.style.display = 'none';
+}
+
+// Función para cerrar el aside
+function cerrarAside() {
+    comentariosAside.style.display = 'none';
+    toggleAsideButton.style.display = 'block';
+}
+
+// Event listeners
+toggleAsideButton.addEventListener('click', abrirAside);
+closeAsideButton.addEventListener('click', cerrarAside);
+
+// Llamar a la función inicialmente y cuando se redimensione la ventana
+ajustarPosicionBoton();
+window.addEventListener('resize', ajustarPosicionBoton);
+</script>
+
 </body>
 </html>
