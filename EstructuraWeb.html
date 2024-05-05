@@ -115,6 +115,8 @@
             background-color: #fff; /* Fondo blanco */
             box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra suave */
         }
+
+        /*Objetivos y recompensas*/
         .meta h3, .faq h3 {
             color: #444;
             font-size: 18px;
@@ -129,6 +131,34 @@
             border-radius: 50%;
             border: 2px solid #333;
         }
+          .monto:hover {
+            background-color: #e0e0e0;
+        }
+         .meta h3:hover {
+            color: #999999;
+         }
+         .meta-content {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.3s ease-out;
+            padding: 0 10px;
+            margin-top: 5px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+        }
+        .meta-content p {
+            margin: 0;
+            text-align: center;
+        }
+        .meta-content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+        }
+        /*Fin Objetivos y recompensas*/
         .faq p, .faq ul {
             text-align: left;
             margin-top: 5px;
@@ -154,7 +184,7 @@
         .objective:hover {
             background-color: #e0e0e0;
         }
-         
+
         /* Estilos CSS para el aside */
         aside {
             position: fixed;
@@ -442,20 +472,36 @@
      <section id="objetivos-recompensas">
         <h2>Objetivos y Recompensas</h2>
         <div class="meta">
-            <h3>Meta 1: Descripción de la meta 1 y las recompensas asociadas.</h3>
-            <div class="monto">$1000</div>
+            <h3 onclick="toggleMeta(1)">Meta 1: Título.</h3>
+            <div class="monto"  onclick="toggleMeta(1)">$5000</div>
+            <div class="meta-content" id="meta1">
+                        <p>Descripción de la meta 1 y las recompensas asociadas.</p>
+                        <img src="https://picsum.photos/700/300" alt="Meta 1">
+                    </div>
         </div>
         <div class="meta">
-            <h3>Meta 2: Descripción de la meta 2 y las recompensas asociadas.</h3>
-            <div class="monto">$2000</div>
+            <h3 onclick="toggleMeta(2)">Meta 2: Título.</h3>
+            <div class="monto" onclick="toggleMeta(2)">$10000</div>
+            <div class="meta-content" id="meta2">
+                        <p>Descripción de la meta 2 y las recompensas asociadas.</p>
+                        <img src="https://picsum.photos/700/300" alt="Meta 2">
+                    </div>
         </div>
         <div class="meta">
-            <h3>Meta 3: Descripción de la meta 3 y las recompensas asociadas.</h3>
-            <div class="monto">$3000</div>
+            <h3 onclick="toggleMeta(3)">Meta 3: Título.</h3>
+            <div class="monto" onclick="toggleMeta(3)">$20000</div>
+            <div class="meta-content" id="meta3">
+                        <p>Descripción de la meta 3 y las recompensas asociadas.</p>
+                        <img src="https://picsum.photos/700/300" alt="Meta 3">
+                    </div>
         </div>
         <div class="meta">
-            <h3>Meta 4: Descripción de la meta 4 y las recompensas asociadas.</h3>
-            <div class="monto">$4000</div>
+            <h3 onclick="toggleMeta(4)">Meta 4: Título.</h3>
+            <div class="monto" onclick="toggleMeta(4)">$35000</div>
+            <div class="meta-content" id="meta4">
+                        <p>Descripción de la meta 4 y las recompensas asociadas.</p>
+                        <img src="https://picsum.photos/700/300" alt="Meta 4">
+                    </div>
         </div>
     </section>
     <section id="participacion-recompensas">
@@ -777,6 +823,27 @@
                     item.style.maxHeight = null;
                     item.style.opacity = 0;
                 });
+            }
+        }
+    </script>
+    <script>
+    function toggleMeta(metaNumber) {
+            var metaContent = document.getElementById('meta' + metaNumber);
+            if (metaContent.classList.contains('active')) {
+                metaContent.classList.remove('active');
+                metaContent.style.maxHeight = null;
+                metaContent.style.opacity = 0;
+            } else {
+                // Cerrar todos las metas antes de abrir la seleccionado
+                var allMetas = document.querySelectorAll('.meta-content');
+                allMetas.forEach(function(item) {
+                    item.classList.remove('active');
+                    item.style.maxHeight = null;
+                    item.style.opacity = 0;
+                });
+                metaContent.classList.add('active');
+                metaContent.style.maxHeight = metaContent.scrollHeight + "px";
+                metaContent.style.opacity = 1;
             }
         }
     </script>
