@@ -20,6 +20,24 @@
             padding: 10px 0;
             text-align: center;
         }
+        .aside-slider {
+    overflow-y: auto;
+    max-height: 80vh; /* Altura máxima */
+}
+
+.aside-slider::-webkit-scrollbar {
+    width: 5px; /* Ancho de la barra de desplazamiento */
+}
+
+.aside-slider::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3); /* Color de la barra de desplazamiento */
+    border-radius: 5px; /* Radio de los bordes */
+}
+
+.aside-slider::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1); /* Color de fondo de la barra de desplazamiento */
+}
+
         .circular-button {
             position: fixed;
             bottom: 20px;
@@ -652,72 +670,42 @@
     </footer>
     
     <!-- Aside que se abrirá al hacer clic en el botón -->
- <aside id="comentariosAside">
-   
-        <button id="closeAside" class="circular-button">✖</button>
+<aside id="comentariosAside" class="aside-slider">
+    <button id="closeAside" class="circular-button">✖</button>
+    <h2>Comentarios</h2>
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://multimediaurjc.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <div class="comment-form" id="commentForm">
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br>
+            <label for="mensaje">Mensaje:</label><br>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea><br>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <button id="joinConversation">Únete a la conversación</button>
+    <!-- Botón para cerrar el aside -->
+    <button id="closeAsideButton" class="circular-button">Cerrar</button>
+</aside>
 
-        <h2>Comentarios</h2>
-        <!-- Comentarios ficticios --->
-        <div class="comment">
-            <img src="Images/Persona Comentrario 3.png" alt="Usuario 1">
-            <div class="info">
-                <p>Usuario 1 - 10:00 AM</p>
-                <p>El juego pinta muy bien, espero que cumplan!!!</p>
-            </div>
-        </div>
-        <div class="comment">
-            <img src="Images/Persona Comentario 1.png" alt="Usuario 2">
-            <div class="info">
-                <p>Usuario 2 - 10:30 AM</p>
-                <p>He aportado mi granito de arena a este proyecto, que ganas de verlo terminado!!!</p>
-            </div>
-        </div>
-        <div class="comment">
-            <img src="Images/Persona Comentrario 2.png" alt="Usuario 3">
-            <div class="info">
-                <p>Usuario 3 - 11:00 AM</p>
-                <p>Me ecanta que los desarrolladores indie prueben cosas nuevas, que vayan a innovar.</p>
-            </div>
-        </div>
-        <div id="disqus_thread"></div>
-<script>
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-    /*
-    var disqus_config = function () {
-    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    */
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://multimediaurjc.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        
-        <div class="comment-form" id="commentForm">
-            <form>
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required><br>
-                <label for="mensaje">Mensaje:</label><br>
-                <textarea id="mensaje" name="mensaje" rows="4" required></textarea><br>
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
-        <button id="joinConversation">Únete a la conversación</button>
-        <aside id="comentariosAside">
-        <!-- Botón para cerrar el aside -->
-        <button id="closeAside" class="circular-button">✖</button>
-        <h2>Comentarios</h2>
-        <!-- Contenido del aside -->
-        <p>Aquí puedes agregar tu contenido de comentarios...</p>
-        <button id="closeAsideButton" class="circular-button">Cerrar</button>
-    </aside>
-    </aside>
 
         <script>
         // Función para abrir automáticamente el aside después de tres segundos
