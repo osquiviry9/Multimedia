@@ -20,7 +20,8 @@
         header {
             padding: 10px 0;
             text-align: center;
-            .aside-slider {
+        }
+        .aside-slider {
     overflow-y: auto;
     max-height: 80vh; /* Altura máxima */
 }
@@ -37,8 +38,7 @@
 .aside-slider::-webkit-scrollbar-track {
     background-color: rgba(0, 0, 0, 0.1); /* Color de fondo de la barra de desplazamiento */
 }
-
-        }
+        
         .circular-button {
             position: fixed;
             bottom: 20px;
@@ -92,18 +92,7 @@
     max-height: 80vh; /* Altura máxima */
 }
 
-.aside-slider::-webkit-scrollbar {
-    width: 5px; /* Ancho de la barra de desplazamiento */
-}
 
-.aside-slider::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.3); /* Color de la barra de desplazamiento */
-    border-radius: 5px; /* Radio de los bordes */
-}
-
-.aside-slider::-webkit-scrollbar-track {
-    background-color: rgba(0, 0, 0, 0.1); /* Color de fondo de la barra de desplazamiento */
-}
 
         }
         
@@ -757,16 +746,9 @@
         })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <div class="comment-form" id="commentForm">
-        <form>
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required><br>
-            <label for="mensaje">Mensaje:</label><br>
-            <textarea id="mensaje" name="mensaje" rows="4" required></textarea><br>
-            <button type="submit">Enviar</button>
-        </form>
-    </div>
+    
     <!-- Botón para cerrar el aside -->
+    
 </aside>
 
 
