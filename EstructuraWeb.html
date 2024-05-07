@@ -69,6 +69,24 @@
             font-size: 16px;
             border: none;
             cursor: pointer;
+            .aside-slider {
+    overflow-y: auto;
+    max-height: 80vh; /* Altura máxima */
+}
+
+.aside-slider::-webkit-scrollbar {
+    width: 5px; /* Ancho de la barra de desplazamiento */
+}
+
+.aside-slider::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3); /* Color de la barra de desplazamiento */
+    border-radius: 5px; /* Radio de los bordes */
+}
+
+.aside-slider::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1); /* Color de fondo de la barra de desplazamiento */
+}
+
         }
         
         footer {
@@ -732,6 +750,7 @@
     </div>
     <!-- Botón para cerrar el aside -->
 </aside>
+
     <script>
 
     // Función para abrir automáticamente el aside después de tres segundos
