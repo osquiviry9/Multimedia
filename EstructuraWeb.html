@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,24 +21,6 @@
             padding: 10px 0;
             text-align: center;
         }
-        .aside-slider {
-    overflow-y: auto;
-    max-height: 80vh; /* Altura máxima */
-}
-
-.aside-slider::-webkit-scrollbar {
-    width: 5px; /* Ancho de la barra de desplazamiento */
-}
-
-.aside-slider::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.3); /* Color de la barra de desplazamiento */
-    border-radius: 5px; /* Radio de los bordes */
-}
-
-.aside-slider::-webkit-scrollbar-track {
-    background-color: rgba(0, 0, 0, 0.1); /* Color de fondo de la barra de desplazamiento */
-}
-
         .circular-button {
             position: fixed;
             bottom: 20px;
@@ -133,6 +116,8 @@
             background-color: #fff; /* Fondo blanco */
             box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra suave */
         }
+
+        /*Objetivos y recompensas*/
         .meta h3, .faq h3 {
             color: #444;
             font-size: 18px;
@@ -147,6 +132,34 @@
             border-radius: 50%;
             border: 2px solid #333;
         }
+          .monto:hover {
+            background-color: #e0e0e0;
+        }
+         .meta h3:hover {
+            color: #999999;
+         }
+         .meta-content {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.3s ease-out;
+            padding: 0 10px;
+            margin-top: 5px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+        }
+        .meta-content p {
+            margin: 0;
+            text-align: center;
+        }
+        .meta-content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+        }
+        /*Fin Objetivos y recompensas*/
         .faq p, .faq ul {
             text-align: left;
             margin-top: 5px;
@@ -172,7 +185,7 @@
         .objective:hover {
             background-color: #e0e0e0;
         }
-         
+
         /* Estilos CSS para el aside */
         aside {
             position: fixed;
@@ -460,20 +473,36 @@
      <section id="objetivos-recompensas">
         <h2>Objetivos y Recompensas</h2>
         <div class="meta">
-            <h3>Meta 1: Descripción de la meta 1 y las recompensas asociadas.</h3>
-            <div class="monto">$1000</div>
+            <h3 onclick="toggleMeta(1)">Meta 1: Título.</h3>
+            <div class="monto"  onclick="toggleMeta(1)">$5000</div>
+            <div class="meta-content" id="meta1">
+                        <p>Descripción de la meta 1 y las recompensas asociadas.</p>
+                        <img src="https://picsum.photos/700/300" alt="Meta 1">
+                    </div>
         </div>
         <div class="meta">
-            <h3>Meta 2: Descripción de la meta 2 y las recompensas asociadas.</h3>
-            <div class="monto">$2000</div>
+            <h3 onclick="toggleMeta(2)">Meta 2: Título.</h3>
+            <div class="monto" onclick="toggleMeta(2)">$10000</div>
+            <div class="meta-content" id="meta2">
+                        <p>Descripción de la meta 2 y las recompensas asociadas.</p>
+                        <img src="https://picsum.photos/700/300" alt="Meta 2">
+                    </div>
         </div>
         <div class="meta">
-            <h3>Meta 3: Descripción de la meta 3 y las recompensas asociadas.</h3>
-            <div class="monto">$3000</div>
+            <h3 onclick="toggleMeta(3)">Meta 3: Título.</h3>
+            <div class="monto" onclick="toggleMeta(3)">$20000</div>
+            <div class="meta-content" id="meta3">
+                        <p>Descripción de la meta 3 y las recompensas asociadas.</p>
+                        <img src="https://picsum.photos/700/300" alt="Meta 3">
+                    </div>
         </div>
         <div class="meta">
-            <h3>Meta 4: Descripción de la meta 4 y las recompensas asociadas.</h3>
-            <div class="monto">$4000</div>
+            <h3 onclick="toggleMeta(4)">Meta 4: Título.</h3>
+            <div class="monto" onclick="toggleMeta(4)">$35000</div>
+            <div class="meta-content" id="meta4">
+                        <p>Descripción de la meta 4 y las recompensas asociadas.</p>
+                        <img src="https://picsum.photos/700/300" alt="Meta 4">
+                    </div>
         </div>
     </section>
     <section id="participacion-recompensas">
@@ -670,7 +699,7 @@
     </footer>
     
     <!-- Aside que se abrirá al hacer clic en el botón -->
-<aside id="comentariosAside" class="aside-slider">
+ <aside id="comentariosAside" class="aside-slider">
     <button id="closeAside" class="circular-button">✖</button>
     <h2>Comentarios</h2>
     <div id="disqus_thread"></div>
@@ -692,28 +721,19 @@
         })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    
+    <div class="comment-form" id="commentForm">
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br>
+            <label for="mensaje">Mensaje:</label><br>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea><br>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
     <!-- Botón para cerrar el aside -->
-    
 </aside>
-
-
-        <script>
-        // Función para abrir automáticamente el aside después de tres segundos
-        window.onload = function() {
-            setTimeout(function() {
-                var asideElement = document.getElementById("comentariosAside");
-                asideElement.style.opacity = "1";
-            }, 3000); // Tres segundos
-        };
-
-        // Función para mostrar el formulario al hacer clic en el botón "Únete a la conversación"
-        document.getElementById("joinConversation").addEventListener("click", function() {
-            var form = document.getElementById("commentForm");
-            form.classList.toggle("active");
-        });
-    </script>
     <script>
+
     // Función para abrir automáticamente el aside después de tres segundos
     window.onload = function() {
         
@@ -780,6 +800,27 @@
         }
     </script>
     <script>
+    function toggleMeta(metaNumber) {
+            var metaContent = document.getElementById('meta' + metaNumber);
+            if (metaContent.classList.contains('active')) {
+                metaContent.classList.remove('active');
+                metaContent.style.maxHeight = null;
+                metaContent.style.opacity = 0;
+            } else {
+                // Cerrar todos las metas antes de abrir la seleccionado
+                var allMetas = document.querySelectorAll('.meta-content');
+                allMetas.forEach(function(item) {
+                    item.classList.remove('active');
+                    item.style.maxHeight = null;
+                    item.style.opacity = 0;
+                });
+                metaContent.classList.add('active');
+                metaContent.style.maxHeight = metaContent.scrollHeight + "px";
+                metaContent.style.opacity = 1;
+            }
+        }
+    </script>
+    <script>
         // Obtener referencias a los elementos
 const toggleAsideButton = document.getElementById('toggleAside');
 const comentariosAside = document.getElementById('comentariosAside');
@@ -821,6 +862,6 @@ closeAsideButton.addEventListener('click', cerrarAside);
 ajustarPosicionBoton();
 window.addEventListener('resize', ajustarPosicionBoton);
 </script>
-<script id="dsq-count-scr" src="//multimediaurjc.disqus.com/count.js" async></script>
+
 </body>
 </html>
