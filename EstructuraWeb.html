@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,6 +21,24 @@
             padding: 10px 0;
             text-align: center;
         }
+        .aside-slider {
+    overflow-y: auto;
+    max-height: 80vh; /* Altura máxima */
+}
+
+.aside-slider::-webkit-scrollbar {
+    width: 5px; /* Ancho de la barra de desplazamiento */
+}
+
+.aside-slider::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3); /* Color de la barra de desplazamiento */
+    border-radius: 5px; /* Radio de los bordes */
+}
+
+.aside-slider::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1); /* Color de fondo de la barra de desplazamiento */
+}
+
         .circular-button {
             position: fixed;
             bottom: 20px;
@@ -68,6 +87,13 @@
             font-size: 16px;
             border: none;
             cursor: pointer;
+            .aside-slider {
+    overflow-y: auto;
+    max-height: 80vh; /* Altura máxima */
+}
+
+
+
         }
         
         footer {
@@ -509,24 +535,42 @@
             <h2>Participación y Recompensas</h2>
             <div class="container">
                 <div class="objective" onclick="toggleObjective(1)">
-                    <strong>Objetivo y Recompensa 1:</strong> Haz clic para ver más detalles
+                    <strong>Contribución Nivel 1: Novato:</strong> 10-20 €. 
                     <div class="objective-content" id="objective1">
-                        <p>Detalles del Objetivo y Recompensa 1:  Lo agregaré en un futuro.</p>
-                        <img src="imagen1.jpg" alt="Imagen 1">
+                        <p>Acceso anticipado al juego: Los contribuyentes recibirán acceso temprano al juego, permitiéndoles jugar antes que el público en general. </p>
+                        <p></p>
+                        <p>Descarga digital: Obtén una copia digital del juego para disfrutarlo en tu plataforma preferida.</p>
+                        <p></p>
+                        <p>Insignia exclusiva: Recibe una insignia digital exclusiva que demuestra tu apoyo como uno de los primeros en respaldar el proyecto.</p>
+                         <p>Plazos:Acceso anticipado al juego aproximadamente 3 meses antes del lanzamiento oficial.</p>
+
+                        <img src="Images/Participación y recompensas Nivel 1.png" alt="Imagen 1">
                     </div>
                 </div>
                 <div class="objective" onclick="toggleObjective(2)">
-                    <strong>Objetivo y Recompensa 2:</strong> Haz clic para ver más detalles
+                    <strong>Contribución Nivel 2: Intermedio:</strong> 30-50 €.
                     <div class="objective-content" id="objective2">
-                        <p>Detalles del Objetivo y Recompensa 2:  Lo agregaré en un futuro.</p>
-                        <img src="imagen2.jpg" alt="Imagen 2">
+                        <p>Paquete de contenido adicional: Además del juego base, los contribuyentes recibirán contenido adicional exclusivo, como DLCs, expansiones o artículos de personalización.</p>
+                        <p></p>
+                        <p>Acceso a la beta cerrada: Únete a la fase de pruebas beta cerrada para ayudar a refinar y mejorar el juego antes de su lanzamiento oficial.</p>
+                        <p></p>
+                        <p>Créditos en el juego: Tu nombre aparecerá en los créditos del juego como agradecimiento por tu apoyo.</p>
+                        <p>Plazos: Acceso a la beta cerrada unos 6 meses antes del lanzamiento oficial. El contenido adicional podría entregarse junto con el lanzamiento oficial o poco después.</p>
+                        <p>Además, se incluyen todas las ventajas del Nivel 1: Novato</p>
+                        <img src="Images/Participación y recompensas Nivel 2.png" alt="Imagen 2">
                     </div>
                 </div>
                 <div class="objective" onclick="toggleObjective(3)">
-                    <strong>Objetivo y Recompensa 3:</strong> Haz clic para ver más detalles
+                    <strong>Contribución Nivel 3: Avanzado:</strong> 100-200 €.
                     <div class="objective-content" id="objective3">
-                        <p>Detalles del Objetivo y Recompensa 3: Lo agregaré en un futuro.</p>
-                        <img src="imagen3.jpg" alt="Imagen 3">
+                        <p>Edición de coleccionista: Recibe una edición física de lujo del juego, que incluye artículos exclusivos como un libro de arte, una banda sonora en CD, o una figura coleccionable.</p>
+                        <p></p>
+                        <p>Sesión de juego con los desarrolladores: Participa en una sesión exclusiva de juego con el equipo de desarrollo, donde podrás hacer preguntas, proporcionar retroalimentación y conocer los entresijos del proceso de creación.</p>
+                        <p></p>
+                        <p>Personaje personalizado: Trabaja con el equipo de desarrollo para diseñar y nombrar un personaje dentro del juego, dejando tu marca en el mundo del juego para siempre.</p>
+                        <p>Plazos: La edición de coleccionista y la sesión de juego con el desarrollador podrían entregarse alrededor del lanzamiento oficial del juego. El personaje personalizado podría requerir más tiempo y entregarse dentro de los 6-12 meses posteriores al lanzamiento oficial, dependiendo de la complejidad del diseño y la integración en el juego</p>
+                        <p>Además, se incluyen todas las ventajas del Nivel 1: Novato y Nivel 2: Intermedio</p>
+                        <img src="Images/Participación y recompensas Nivel 3.png" alt="Imagen 3">
                     </div>
                 </div>
                 <!-- EL APARTADO DE CONTRIBUCIÓN PERSONALIZADA (WORK IN PROGRESS) -->
@@ -698,69 +742,36 @@
     </footer>
     
     <!-- Aside que se abrirá al hacer clic en el botón -->
- <aside id="comentariosAside">
-        <button id="closeAside" class="circular-button">✖</button>
-
-        <h2>Comentarios</h2>
-        <!-- Comentarios ficticios --->
-        <div class="comment">
-            <img src="Images/Persona Comentrario 3.png" alt="Usuario 1">
-            <div class="info">
-                <p>Usuario 1 - 10:00 AM</p>
-                <p>El juego pinta muy bien, espero que cumplan!!!</p>
-            </div>
-        </div>
-        <div class="comment">
-            <img src="Images/Persona Comentario 1.png" alt="Usuario 2">
-            <div class="info">
-                <p>Usuario 2 - 10:30 AM</p>
-                <p>He aportado mi granito de arena a este proyecto, que ganas de verlo terminado!!!</p>
-            </div>
-        </div>
-        <div class="comment">
-            <img src="Images/Persona Comentrario 2.png" alt="Usuario 3">
-            <div class="info">
-                <p>Usuario 3 - 11:00 AM</p>
-                <p>Me ecanta que los desarrolladores indie prueben cosas nuevas, que vayan a innovar.</p>
-            </div>
-        </div>
-        
-        <div class="comment-form" id="commentForm">
-            <form>
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required><br>
-                <label for="mensaje">Mensaje:</label><br>
-                <textarea id="mensaje" name="mensaje" rows="4" required></textarea><br>
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
-        <button id="joinConversation">Únete a la conversación</button>
-        <aside id="comentariosAside">
-        <!-- Botón para cerrar el aside -->
-        <button id="closeAside" class="circular-button">✖</button>
-        <h2>Comentarios</h2>
-        <!-- Contenido del aside -->
-        <p>Aquí puedes agregar tu contenido de comentarios...</p>
-        <button id="closeAsideButton" class="circular-button">Cerrar</button>
-    </aside>
-    </aside>
-
-        <script>
-        // Función para abrir automáticamente el aside después de tres segundos
-        window.onload = function() {
-            setTimeout(function() {
-                var asideElement = document.getElementById("comentariosAside");
-                asideElement.style.opacity = "1";
-            }, 3000); // Tres segundos
-        };
-
-        // Función para mostrar el formulario al hacer clic en el botón "Únete a la conversación"
-        document.getElementById("joinConversation").addEventListener("click", function() {
-            var form = document.getElementById("commentForm");
-            form.classList.toggle("active");
-        });
-    </script>
+ <aside id="comentariosAside" class="aside-slider">
+    <button id="closeAside" class="circular-button">✖</button>
+    <h2>Comentarios</h2>
+    <div id="disqus_thread"></div>
     <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://multimediaurjc.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+    <!-- Botón para cerrar el aside -->
+    
+</aside>
+
+
+    <script>
+
     // Función para abrir automáticamente el aside después de tres segundos
     window.onload = function() {
         
