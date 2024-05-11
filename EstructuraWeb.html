@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página web multimedia</title>
     <style>
+         @font-face {
+            font-family: 'MiFuentePersonalizada';
+            src: url('Fuente_Pagina_Web.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -16,6 +22,10 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             text-shadow: 2px 2px 5px white;
+        }
+        /* Aplicar la fuente personalizada solo al lema */
+        "#sobre-la-web" h2 {
+            font-family: 'MiFuentePersonalizada', Arial, sans-serif;
         }
         header {
             padding: 10px 0;
