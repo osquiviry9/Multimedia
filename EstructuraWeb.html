@@ -131,6 +131,7 @@
 
         nav li{
             float: left;
+            border-right: 1px solid #bbb;
         }
 
         nav li a {
@@ -152,7 +153,7 @@
         section {
             padding: 20px;
             text-align: center;
-            margin-bottom: 100px; /* Margen inferior para evitar solapamiento con el pie de página. */
+            margin-bottom: 5px; /* Margen inferior para evitar solapamiento con el pie de página. */
         }
         .meta, .faq {
             display: flex;
@@ -493,13 +494,27 @@
           text-align: center;
         }
 
+        .claseText {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
         .claseDisclaimer {
             background-color: rgba(255, 255, 255, 0.2);
         }
 
         .imgInicio {
+              margin-top: 20px;
           border-radius: 8px;
           filter: drop-shadow(8px 8px 8px white);
+        }
+
+        .imgEmpresa {
+          filter: drop-shadow(5px 5px 5px black);
         }
     </style>
 </head>
@@ -527,6 +542,15 @@
                 <h2>
                     El viaje comienza con un simple billete perdido.
                 </h2>
+            </div>
+            <div class="claseText">
+                <p>
+                    POV: Vuelves a casa después de unas vacaciones y decides usar Lejanías Ranfe para hacerlo. Sin embargo, no cuentas con un billete. <br>
+                    Tu misión: Encontrar el billete antes de que te vea el revisor sin el.
+                </p>
+            </div>
+            <div>
+                <img src="Images/logoPngFenix.png" width="70%" class="imgEmpresa">
             </div>
         </div>
     </section>
