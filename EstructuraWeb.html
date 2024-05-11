@@ -101,6 +101,12 @@
             color: #fff;
             padding: 10px 0;
             text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 2;
+            text-shadow: 2px 2px 5px black;
         }
         nav {
             background-color: #444;
@@ -114,21 +120,39 @@
             margin: 0 10px;
             text-shadow: 2px 2px 5px black;
         }
+
+        nav ul{
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              overflow: hidden;
+              background-color: #333;
+        }
+
+        nav li{
+            float: left;
+        }
+
+        nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+          background-color: #04AA6D;
+        }
+
         section {
             padding: 20px;
             text-align: center;
             margin-bottom: 100px; /* Margen inferior para evitar solapamiento con el pie de página. */
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            z-index: 2;
-            text-shadow: 2px 2px 5px black;
         }
         .meta, .faq {
             display: flex;
@@ -460,9 +484,17 @@
         /* fin de estilos CSS para seccion equipo*/
 
         /*estilo CSS inicio de la página*/
-        .grid-container {
-          display: grid;
-          grid-template-columns: 70% 30%;
+        .claseDiv {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          justify-items: center;
+          text-align: center;
+        }
+
+        .claseDisclaimer {
+            background-color: rgba(255, 255, 255, 0.2);
         }
     </style>
 </head>
@@ -472,27 +504,25 @@
         <img src="Images/logoLejanias.png" width="100%" height="70%">
     </header>
     <nav>
-        <a href="#sobre-la-web">Sobre la web</a>
-        <a href="#objetivos-recompensas">Objetivos y recompensas</a>
-        <a href="#participacion-recompensas">Participación y recompensas</a>
-        <a href="#preguntas-frecuentes">Preguntas frecuentes</a>
-        <a href="#comentarios">Comentarios</a>
-        <a href="#equipo">Equipo</a>
+        <ul>
+            <li><a href="#sobre-la-web">Sobre la web</a></li>
+            <li><a href="#objetivos-recompensas">Objetivos y recompensas</a></li>
+            <li><a href="#participacion-recompensas">Participación y recompensas</a></li>
+            <li><a href="#preguntas-frecuentes">Preguntas frecuentes</a></li>
+            <li><a href="#comentarios">Comentarios</a></li>
+            <li><a href="#equipo">Equipo</a></li>
+        </ul>
     </nav>
     <section id="sobre-la-web">
-        <div class="grid-container">
-            <div>
-                <img src="Images/imagenPrincipal.jpg" width="100%" height="70%">
+        <div class="claseDiv">
+            <div class="claseImagen">
+                <img src="Images/imagenPrincipal.jpg" width="70%">
             </div>
             <div>
-                <h2>El viaje comienza con un simple billete perdido.
+                <h2>
+                    El viaje comienza con un simple billete perdido.
                 </h2>
             </div>
-        </div>
-        <div>
-            <h2>ATENCIÓN: Esta página simula la campaña de microfinanciación de un videojuego ficticio 
-            y no representa un producto real. Práctica de Multimedia, 1º GDDV - Curso 23/24
-            (Móstoles), URJC. La URJC no se hace responsable del contenido expuesto por el autor.</h2>
         </div>
     </section>
      <section id="objetivos-recompensas">
@@ -737,6 +767,11 @@
           </div>
         </div>   
     </section>
+    <div class="claseDisclaimer">
+        <h3>ATENCIÓN: Esta página simula la campaña de microfinanciación de un videojuego ficticio 
+        y no representa un producto real. Práctica de Multimedia, 1º GDDV - Curso 23/24
+        (Móstoles), URJC. La URJC no se hace responsable del contenido expuesto por el autor.</h3>
+    </div>
     <footer>
         <p>Derechos de autor &copy; 2024 Mi Página Web</p>
     </footer>
