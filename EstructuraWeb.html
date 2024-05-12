@@ -28,26 +28,26 @@
             font-family: 'MiFuentePersonalizada';
         }
         header {
-            padding: 10px 0;
+            padding: 5px 0;
             text-align: center;
         }
         .aside-slider {
-    overflow-y: auto;
-    max-height: 80vh; /* Altura máxima */
-}
+            overflow-y: auto;
+            max-height: 80vh; /* Altura máxima */
+        }
 
-.aside-slider::-webkit-scrollbar {
-    width: 5px; /* Ancho de la barra de desplazamiento */
-}
+        .aside-slider::-webkit-scrollbar {
+            width: 5px; /* Ancho de la barra de desplazamiento */
+        }
 
-.aside-slider::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.3); /* Color de la barra de desplazamiento */
-    border-radius: 5px; /* Radio de los bordes */
-}
+        .aside-slider::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.3); /* Color de la barra de desplazamiento */
+            border-radius: 5px; /* Radio de los bordes */
+        }
 
-.aside-slider::-webkit-scrollbar-track {
-    background-color: rgba(0, 0, 0, 0.1); /* Color de fondo de la barra de desplazamiento */
-}
+        .aside-slider::-webkit-scrollbar-track {
+            background-color: rgba(0, 0, 0, 0.1); /* Color de fondo de la barra de desplazamiento */
+        }
 
         .circular-button {
             position: fixed;
@@ -64,20 +64,20 @@
             z-index: 1001; /* Asegura que esté encima del contenido */
         }
         #closeAsideButton {
-    display: block;
-    margin-top: 20px;
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+            display: block;
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-#closeAsideButton:hover {
-    background-color: #0056b3;
-}
+        #closeAsideButton:hover {
+            background-color: #0056b3;
+        }
 
         /* Estilos para el aside */
         #comentariosAside {
@@ -98,10 +98,9 @@
             border: none;
             cursor: pointer;
             .aside-slider {
-    overflow-y: auto;
-    max-height: 80vh; /* Altura máxima */
-}
-
+            overflow-y: auto;
+            max-height: 80vh; /* Altura máxima */
+        }
 
 
         }
@@ -115,7 +114,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            z-index: 2;
+            z-index: 500;
             text-shadow: 2px 2px 5px black;
         }
         nav {
@@ -158,6 +157,13 @@
 
         .active {
           background-color: #04AA6D;
+        }
+
+        @media screen and (max-width: 600px) {
+          nav li a {
+            float: none;
+            width: 100%;
+          }
         }
 
         section {
@@ -233,6 +239,7 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
+            z-index: 4;
         }
         .objective {
             margin-bottom: 10px;
@@ -514,20 +521,38 @@
           padding-top: 20px;
         }
 
-        .claseDisclaimer {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
         .imgInicio {
-              margin-top: 20px;
-          border-radius: 8px;
-          filter: drop-shadow(8px 8px 8px white);
+            margin-top: 20px;
+            border-radius: 8px;
+            filter: drop-shadow(10px 10px 10px black);
         }
 
         .imgEmpresa {
-          filter: drop-shadow(5px 5px 5px black);
-          margin-bottom: 30px;
+            filter: drop-shadow(5px 5px 5px black);
+            margin-bottom: 10px;
         }
+
+        .video-container {
+            position: relative;
+            width: 100%; /* Proporción de aspecto del video (9:16) */
+            overflow: hidden;
+            padding-bottom: 75%; /* Proporción de aspecto del video (4:3) */
+        } 
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        @media screen and (min-width: 768px) {
+            .video-container {
+                padding-bottom: 56.25%; /* Proporción de aspecto del video para pantallas grandes (16:9) */
+            }
+        }
+
 
     </style>
 </head>
@@ -557,9 +582,11 @@
                 Tu misión: Encontrar el billete antes de que te vea el revisor sin el.
             </p>
 
-            <img src="Images/logoPngFenix.png" width="70%" class="imgEmpresa">
+            <img src="Images/logoPngFenix.png" width="50%" class="imgEmpresa">
 
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/j1fYyUYZB3Y?si=XnL7rGunC3O2x__a" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/j1fYyUYZB3Y?si=XnL7rGunC3O2x__a" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
         </div>
     </section>
      <section id="objetivos-recompensas">
