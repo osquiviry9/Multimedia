@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -50,6 +51,28 @@
             background-color: rgba(0, 0, 0, 0.1); /* Color de fondo de la barra de desplazamiento */
         }
 
+        #btnSubir {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            width: 50px;
+            height: 50px;
+            background-color: #007bff; /* Azul */
+            color: #fff;
+            border-radius: 50%;
+            font-size: 24px;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            transition: opacity 0.3s ease-in-out;
+            border: none;
+            outline: none;
+            z-index: 999; /* Asegura que esté encima de otros elementos */
+        }
+        #btnSubir:hover {
+            background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+        }
         .circular-button {
             position: fixed;
             bottom: 20px;
@@ -562,7 +585,8 @@
     </style>
 </head>
 <body>
-     <button id="toggleAside" class="circular-button">💬</button>
+ <button id="btnSubir" title="Subir al principio de la página">&#x5e;</button>
+      <button id="toggleAside" class="circular-button">💬</button>
     <header>
         <img src="Images/logoLejanias.png" width="100%" height="70%">
     </header>
@@ -1007,6 +1031,37 @@ closeAsideButton.addEventListener('click', cerrarAside);
 ajustarPosicionBoton();
 window.addEventListener('resize', ajustarPosicionBoton);
 </script>
+<script>
+        // JavaScript aquí
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("btnSubir").style.display = "block";
+            } else {
+                document.getElementById("btnSubir").style.display = "none";
+            }
+        }
+        
+        document.getElementById("btnSubir").addEventListener("click", function() {
+            scrollToTop(800); // 800ms para la transición
+        });
+
+        function scrollToTop(scrollDuration) {
+            var cosParameter = window.scrollY / 2,
+                scrollCount = 0,
+                oldTimestamp = performance.now();
+            function step (newTimestamp) {
+                scrollCount += Math.PI / (scrollDuration / (newTimestamp - oldTimestamp));
+                if (scrollCount >= Math.PI) window.scrollTo(0, 0);
+                if (window.scrollY === 0) return;
+                window.scrollTo(0, Math.round(cosParameter + cosParameter * Math.cos(scrollCount)));
+                oldTimestamp = newTimestamp;
+                window.requestAnimationFrame(step);
+            }
+            window.requestAnimationFrame(step);
+        }
+    </script>
 
 </body>
 </html>
